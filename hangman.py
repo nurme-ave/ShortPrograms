@@ -35,7 +35,7 @@ def guess_the_word():
             else:
                 LETTERS_NOT_IN_WORD.append(user_input)
                 print(f">>>> Sorry - please try again! "
-                      f"'{user_input}' does not exist in this word..."
+                      f"The letter '{user_input}' does not exist in this word..."
                       " \n\t Here's the list of letters you've"
                       " tried which do not exist in the word:"
                       f"\n\t {LETTERS_NOT_IN_WORD}")
