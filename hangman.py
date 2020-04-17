@@ -25,7 +25,9 @@ def guess_the_word():
     while sorted(LETTERS_IN_WORD) != sorted(RANDOM_WORD):
         user_input = input("\nPlease give a single letter: ").lower()
         if (user_input in ALPHABET_LIST) and (len(user_input) == 1):
-            if user_input in RANDOM_WORD:
+            if user_input in LETTERS_IN_WORD:
+                print(f"'{user_input}' already in this word...")
+            elif user_input in RANDOM_WORD:
                 find_all_indices = [index for index, value
                                     in enumerate(RANDOM_WORD)
                                     if value == user_input]
@@ -35,7 +37,7 @@ def guess_the_word():
             else:
                 LETTERS_NOT_IN_WORD.append(user_input)
                 print(f">>>> Sorry - please try again! "
-                      f"The letter '{user_input}' does not exist in this word..."
+                      f"'{user_input}' does not exist in this word..."
                       " \n\t Here's the list of letters you've"
                       " tried which do not exist in the word:"
                       f"\n\t {LETTERS_NOT_IN_WORD}")
