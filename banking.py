@@ -7,9 +7,11 @@ Passed the JetBrains automated check.
 from random import randint
 
 
+# an array to store the card number and the PIN-code
 store_data = []
 
 
+# show the client the menu of options before logging in
 def show_menu():
     print()
     menu = {
@@ -22,6 +24,7 @@ def show_menu():
         print(f"{key}. {value}")
 
 
+# ask for the user input before logging in
 def user_input_before_logging_in():
     choice = int(input())
 
@@ -34,6 +37,7 @@ def user_input_before_logging_in():
         log_into_account()
 
 
+# create the card if the client has chosen to create an account
 def create_the_card():
     iin = 400000
     account_identifier = randint(100000000, 999999999)
@@ -46,6 +50,7 @@ def create_the_card():
           f"{card_nr}")
 
 
+# create the card's PIN code if the client has chosen to create an account    
 def create_pin_code():
     pin_code = randint(1000, 9999)
     store_data.append(pin_code)
@@ -54,6 +59,7 @@ def create_pin_code():
           f"{pin_code}")
 
 
+# check if the client has entered the correct card number and PIN code
 def log_into_account():
     ask_card_nr = int(input("Enter card number: "))
     ask_pin_code = int(input("Enter PIN-code: "))
@@ -69,6 +75,7 @@ def log_into_account():
         user_input_before_logging_in()
 
 
+# show the client the menu of options after logging in
 def user_input_after_logging_in():
     choice = int(input())
 
@@ -82,6 +89,7 @@ def user_input_after_logging_in():
         print("Bye!")
 
 
+# show the client the menu of options after logging in
 def show_balance():
     print()
     bal_menu = {
