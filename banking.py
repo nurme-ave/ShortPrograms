@@ -2,6 +2,7 @@
 Simple program to model a banking system - a project at JetBrains Academy - stage 2 of 4.
 Author: Ave Nurme
 Created on: August 24th, 2020
+Passed the JetBrains automated check.
 """
 
 from random import randint
