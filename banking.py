@@ -1,8 +1,9 @@
 """
-Simple program to model a banking system - a project at JetBrains Academy - stage 2 of 4.
+Simple program to model a banking system.
 Author: Ave Nurme
 Created on: August 24th, 2020
-Passed the JetBrains automated check.
+Pylint: "Your code has been rated at 10.00/10"
+Passed the JetBrains Academy automated check.
 """
 
 from random import randint
@@ -17,35 +18,41 @@ def show_main_menu():
     Loop over the items for output.
     """
     print()
-    main_menu = {
+    menu = {
         1: "Create an account",
         2: "Log into account",
         0: "Exit",
     }
 
-    for key, value in main_menu.items():
+    for key, value in menu.items():
         print(f"{key}. {value}")
 
 
-def user_input_before_logging_in():
+def function_call_main_menu():
     """
-    Ask for the user input prior to creating an account and logging in.
-    Take action based on the user input.
+    Ask for user input.
+    Dispatch using a dictionary.
+    More info here:
+    https://www.oreilly.com/library/view/python-cookbook/0596001673/ch01s07.html
     """
-    choice = int(input())
+    show_main_menu()
+    choice = input()
 
-    if choice == 1:
-        create_account()
-    elif choice == 2:
-        log_into_account()
-    elif choice == 0:
-        exit_program()
+    menu_dict = {
+        '1': create_account,
+        '2': log_into_account,
+        '0': exit_program,
+    }
+
+    function_to_call = menu_dict[choice]
+    function_to_call()
 
 
 def create_the_card():
     """
     Create the card by concatenating 'iin' and 'account_identifier.
-    For the latter the 'random' library is used to generate the rest of the 10 digits.
+    For the latter the 'random' library is used to generate the
+    rest of the 10 digits.
     Store the number in an array 'store_data' and return it.
     """
     iin = 400000
@@ -71,7 +78,8 @@ def validate():
     # save the last digit of the list (we're going to need it later)
     last_digit = to_digits[-1]
 
-    # a list comprehension for multiplying odd digits by 2, excluding the last digit
+    # a list comprehension for multiplying odd digits by 2,
+    # excluding the last digit
     multiply_odd_digits = [int(num) * 2
                            if i % 2 == 0
                            else int(num)
@@ -89,7 +97,8 @@ def validate():
     # check if the result is a multiple of 10
     result = sum_all_numbers_incl_last_digit % 10
 
-    # print a message if the number is valid according to the Luhn algorithm or start all over again
+    # print a message if the number is valid according to the
+    # Luhn algorithm or start all over again
     if result == 0:
         print(f"\nYour card has been created\n"
               f"Your card number:\n"
@@ -121,12 +130,10 @@ def log_into_account():
 
     if ask_card_nr == store_data[-2] and ask_pin_code == store_data[-1]:
         print("\nYou have successfully logged in!")
-        show_balance_menu()
-        user_input_after_logging_in()
+        function_call_balance_menu()
     elif ask_card_nr != store_data[-2] or ask_pin_code != store_data[-1]:
         print("\nWrong card number or PIN!")
-        show_main_menu()
-        user_input_before_logging_in()
+        function_call_main_menu()
 
 
 def show_balance_menu():
@@ -145,41 +152,43 @@ def show_balance_menu():
         print(f"{key}. {value}")
 
 
-def user_input_after_logging_in():
+def function_call_balance_menu():
     """
-    Ask for the user input after logging in.
-    Take action based on the user input.
+    Ask for user input.
+    Dispatch using a dictionary.
+    More info here:
+    https://www.oreilly.com/library/view/python-cookbook/0596001673/ch01s07.html
     """
-    choice = int(input())
+    show_balance_menu()
+    choice = input()
 
-    if choice == 1:
-        show_balance()
-    elif choice == 2:
-        log_out()
-    elif choice == 0:
-        exit_program()
+    balance_dict = {
+        '1': show_balance,
+        '2': log_out,
+        '0': exit_program,
+    }
+
+    function_to_call = balance_dict[choice]
+    function_to_call()
 
 
 def create_account():
     """Create the account."""
     validate()
     create_pin_code()
-    show_main_menu()
-    user_input_before_logging_in()
+    function_call_main_menu()
 
 
 def show_balance():
     """Show the current balance."""
     print("\nBalance: 0")
-    show_balance_menu()
-    user_input_after_logging_in()
+    function_call_balance_menu()
 
 
 def log_out():
     """Log out."""
     print("You have successfully logged out!")
-    show_main_menu()
-    user_input_before_logging_in()
+    function_call_main_menu()
 
 
 def exit_program():
@@ -189,8 +198,7 @@ def exit_program():
 
 def main():
     """Run the program."""
-    show_main_menu()
-    user_input_before_logging_in()
+    function_call_main_menu()
 
 
 main()
