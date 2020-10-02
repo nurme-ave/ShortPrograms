@@ -1,4 +1,23 @@
-"""Simple calculator."""
+"""
+Simple calculator.
+
+EXAMPLE 1 (add):
+
+Please type a number: 5
+Please type another number: 5
+What kind of mathematical operation would you like to perform on these numbers?
+[A]dd, [S]ubtract, [M]ultiply, [D]ivide: A
+Your operation: 5 + 5 = 10
+
+EXAMPLE 2 (division by zero):
+
+Please type a number: 5
+Please type another number: 0
+What kind of mathematical operation would you like to perform on these numbers?
+[A]dd, [S]ubtract, [M]ultiply, [D]ivide: d
+Your operation: 5 / 0 = Cannot perform this operation -> division by zero
+
+"""
 
 
 class Calculation:
