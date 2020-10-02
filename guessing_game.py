@@ -1,4 +1,26 @@
-"""A simple program for modelling a number guessing game."""
+"""
+A simple program for modelling a number guessing game.
+
+EXAMPLE:
+
+Welcome to the Number Guessing Game!
+What is your name? Ave
+
+Welcome, Ave!
+Let's start the game, shall we?
+
+Ave, please select a number between 1 and 10: 5
+Try again!
+
+Ave, please select a number between 1 and 10: 3
+You got it! It took you 1 tries!
+
+Ave, do you wish to play again? [Y]es: n
+
+Ave, thanks for playing!
+Stay safe!
+
+"""
 
 import random
 import sys
