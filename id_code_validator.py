@@ -4,6 +4,20 @@ University of Tartu - Introduction to Programming II (LTAT.TK.001 - 3 EAP) - fin
 This program checks the validity of the user's ID code and returns the result based on user input.
 Information on how to check the validity of the ID code can be found here -> https://et.wikipedia.org/wiki/Isikukood
 Author: Ave Nurme
+
+EXAMPLE 1 (valid ID-code):
+
+Please type in your name: Ave
+Please type in your ID code: [here the user enters his/her ID-code]
+{'Ave': '1234567****'}
+Good news! -> Your ID code is valid. CSV-file written successfully!
+
+EXAMPLE 2 (invalid ID-code):
+
+Please type in your name: Ave
+Please type in your ID code: 12345678912
+Invalid ID code or invalid input - no CSV-file written!
+
 """
 
 name = input("Please type in your name: ").capitalize()  # ask for the user's name and capitalize it
