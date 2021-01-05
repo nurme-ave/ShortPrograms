@@ -1,4 +1,4 @@
 # ShortPrograms
 Just a collection of short programs.
 
-TODO -> refactor hangman
+On TODO-list -> refactor hangman.py & guessing_game.py
